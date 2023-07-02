@@ -15,7 +15,7 @@ for (let i = 0; i < 105; i++) {
         98, 100, 105, 106].includes(i)) {
         square.classList.add("blank__square");
     } else {
-        square.classList.add("main-grid__square");
+        square.classList.add("grid__square");
     }
 
     gridContainer.appendChild(square);
