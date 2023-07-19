@@ -41,6 +41,11 @@ h1 {
     line-height: 0.9em;
 }
 
+h1:hover {
+    transform: translateX(1%);
+    color: rgba(200, 200, 200, 0.5);
+    transition-duration: 0.5s;
+}
 h2 {
     color: var(--clr-highlight);
     font-family: var(--ff-secondary);

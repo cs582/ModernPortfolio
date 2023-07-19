@@ -38,6 +38,12 @@ h1 {
     line-height: 0.9em;
 }
 
+h1:hover {
+    transform: translateX(1%);
+    color: rgba(0, 0, 0, 0.5);
+    transition-duration: 0.5s;
+}
+
 h2 {
     color: white;
     font-family: var(--ff-secondary);
@@ -79,6 +85,28 @@ li, p, h4 {
     }
     to {
         transform: scaleX(100%);
+    }
+}
+
+@keyframes show-square {
+    from{
+        opacity: 0.0;
+        transform: scale(50%);
+    }
+    to {
+        opacity: 0.9;
+        transform: scale(100%);
+    }
+}
+
+@keyframes slide-in {
+    from{
+        opacity: 0.0;
+        transform: translateX(-10%);
+    }
+    to {
+        opacity: 1.0;
+        transform: translateX(0);
     }
 }
 
@@ -168,6 +196,8 @@ nav ul li a:hover {
     padding-top: 1em;
     padding-right: 9em;
     position: relative;
+    opacity: 0.0;
+    animation: slide-in 1.5s ease 0.5s forwards;
 }
 
 .home__first_title {
@@ -194,6 +224,15 @@ nav ul li a:hover {
     justify-content: center;
 }
 
+.research_icon {
+    margin: 10px 0 10px 0;
+}
+
+.research_icon:hover {
+    transform: scale(105%);
+    transition-duration: 0.4s;
+}
+
 .small__container {
     text-align: center;
     max-width: 20%;
@@ -210,7 +249,7 @@ nav ul li a:hover {
     position: absolute;
 }
 
-.description__text{
+.description__text {
     margin: 220px auto auto 135.5px ;
     position: absolute;
     text-align: center;
@@ -235,7 +274,6 @@ nav ul li a:hover {
 
 .grid__square {
     z-index: 0;
-    opacity: 0.9;
     display: block;
     border-style: solid;
     border-color: var(--clr-gray);
@@ -243,7 +281,11 @@ nav ul li a:hover {
     height: 52px;
     background-color: black;
     transition: background-color 0.3s ease 0.3s, border-color 0.3s ease;
+
+    opacity: 0.0;
+    animation: show-square 1.5s ease 0.5s forwards;
 }
+
 
 
 .grid__square:hover {
@@ -284,17 +326,35 @@ nav ul li a:hover {
     grid-column-end: 4;
 }
 
-.about__picture-box {
+.about__headshot-container {
     grid-row-start: 3;
     grid-row-end: 5;
     grid-column-start: 1;
     grid-column-end: 2;
 
+    position: absolute;
+    width: 440px;
+    height: 330px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.about__picture-box {
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    width: 440px;
-    height: 385px;
+    grid-template-rows: repeat(6, 1fr);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.about__headshot-photo {
+    margin-bottom: 55px;
+    margin-left: 55px;
+    position: absolute;
+    z-index: 1;
 }
 
 .about__location{
